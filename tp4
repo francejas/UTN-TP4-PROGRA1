@@ -1,31 +1,172 @@
+#include <stdio.h>
+#include <stdlib.h>
 
-void cargarMatriz(matriz,filas,columnas);
+#include<string.h>
 
-int main()
-{
-    int filas=2;
+#include <time.h>
+
+//1
+/*
+const dimColum=5;
+
+int main() {
+int filas, columnas;
+columnas=dimColum;
+printf("Ingrese el número de filas de la matriz: ");
+scanf("%d", &filas);
+//printf("Ingrese el número de columnas de la matriz: ");
+//scanf("%d", &columnas);
+
+int matriz[filas][dimColum];
+
+cargarMatriz(matriz, filas, columnas);
+
+// Mostrar la matriz para verificar que se cargó correctamente
+printf("\nMatriz ingresada:\n");
+for (int i = 0; i < filas; i++) {
+    for (int j = 0; j < columnas; j++) {
+printf("%d\t", matriz[i][j]);
+}
+printf("\n");
+}
+
+return 0;
+}
+
+
+void cargarMatriz(int matriz[][dimColum], int filas, int columnas) {
+for (int i = 0; i < filas; i++) {
+for (int j = 0; j < columnas; j++) {
+printf("Ingrese el valor para la posición [%d][%d]: ", i, j);
+scanf("%d", &matriz[i][j]);
+}
+}
+}
+*/
+
+//2
+
+/*
+int main() {
+
+    int filas=3;
     int columnas=3;
-    int matriz[filas][columnas];
 
-    cargarMatriz(matriz,filas,columnas);
+    int matriz[3][3] = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    mostrarMatriz(matriz, filas, columnas);
+    return 0;
+}
 
-    printf("La matriz ingresada es:/n");
-    for (int i=0;i<filas;i++){
-        for (int j=0;j<columnas;i++){
-            printf("%d/t",matriz[i][j]);
+
+void mostrarMatriz(int matriz[][3], int filas, int columnas) {
+
+
+printf("\nMatriz:\n");
+for (int i = 0; i < filas; i++) {
+    for (int j = 0; j < columnas; j++) {
+printf("%d\t", matriz[i][j]);
+}
+printf("\n");
+}
+}
+*/
+
+//3
+
+/*
+
+int main() {
+
+    int filas=3;
+    int columnas=3;
+
+    int matriz[3][3];
+
+    cargarMatrizAleatoria(matriz, filas, columnas);
+
+// Mostrar la matriz para verificar que se cargó correctamente
+printf("\nMatriz cargada aleatoriamente:\n");
+for (int i = 0; i < filas; i++) {
+    for (int j = 0; j < columnas; j++) {
+printf("%d\t", matriz[i][j]);
+}
+printf("\n");
+}
+
+return 0;
+}
+
+
+void cargarMatrizAleatoria(int matriz[][3], int filas, int columnas) {
+    srand (time(NULL)); // Inicializa el generador de números aleatorios una sola vez
+
+    for (int i = 0; i < filas; i++) {
+        for (int j = 0; j < columnas; j++) {
+            int numRand = rand() % 10; // Genera un número aleatorio entre 0 y 9
+            matriz[i][j] = numRand;
         }
-        printf("/n");
     }
+}
 
+*/
+
+//4
+
+/*
+int main() {
+
+    int filas=3;
+    int columnas=3;
+
+    int matriz[3][3] = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+
+    int suma = sumaMatriz(matriz,filas,columnas);
+
+    printf("Suma= %d",suma);
 
     return 0;
 }
 
-void cargarMatriz(int matriz[][3], int filas, int columnas){
-    for (int i=0;i<filas;i++){
-        for (int j=0;j<columnas;j++){
-            printf("Ingrese valor para la posicion [%d][%d]:",i,j);
-            scanf("%d",&matriz[i][j]);
+int sumaMatriz (int matriz[][3], int filas, int columnas) {
+
+    int suma=0;
+
+    for (int i = 0; i < filas; i++) {
+        for (int j = 0; j < columnas; j++) {
+            suma = suma + matriz[i][j];
         }
     }
+    return suma;
 }
+
+*/
+
+
+//5
+int main() {
+
+    int filas=3;
+    int columnas=3;
+
+    int matriz[3][3] = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+
+    float promedio = promedioMatriz(matriz,filas,columnas);
+
+    printf("Promedio= %f",promedio);
+
+    return 0;
+}
+
+float promedioMatriz (int matriz[][3], int filas, int columnas){
+    int suma=0;
+
+    for (int i = 0; i < filas; i++) {
+        for (int j = 0; j < columnas; j++) {
+            suma = suma + matriz[i][j];
+        }
+    }
+
+    float promedio= suma/(filas*columnas);
+    return promedio;
+}
+
